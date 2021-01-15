@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+<body>
+
+<h2>Virtual Lab</h2>
+<p>Virtual Lab Test Page</p>
+
+Position (0.0 - 0.1): <input type="text" id="pos" size="20" name="fname"><br>
+Torque (1 - 10): <input type="text" id="torq" size="20" name="age"><br>
+<button onclick="run()">Run</button>
+
+<p>Results</p>
+<p>Air Flow Pressure (Pa):</p> <label id="afp"></label>
+<p>Engine Speed (rpm):</p> <label id="speed"></label>
+<p>Fuel Flow Rate (cm^3/min):</p> <label id="ffr"></label>
+
+<script>
+const getPrediction = async function(position, torque) {
+  const model = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/model_without_noise/model.json');
+  pred = model.predict(tf.tensor([position, torque]).reshape([1, 2]));
+  return pred.data();
+}
+
+function run() {
+  var pos = document.getElementById("pos").value;
+  var torq = document.getElementById("torq").value;
+  getPrediction(parseFloat(pos), parseFloat(torq))
+    .then((pred) => {setResult(pred)});
+}
+
+function setResult(pred) {
+   document.getElementById('afp').innerHTML = pred[0].toString();
+   document.getElementById('speed').innerHTML = pred[1].toString();
+   document.getElementById('ffr').innerHTML = pred[2].toString();
+}
+</script> 
+
+</body>
+</html>
