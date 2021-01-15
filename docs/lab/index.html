@@ -22,10 +22,27 @@ const getPrediction = async function(position, torque) {
   return pred.data();
 }
 
+function normal(mu, sigma, nsamples){ // using central limit
+    if(!nsamples) nsamples = 3
+    if(!sigma) sigma = 1
+    if(!mu) mu=0
+
+    var run_total = 0
+    for(var i=0 ; i<nsamples ; i++){
+       run_total += Math.random()
+    }
+
+    return sigma*(run_total - nsamples/2)/(nsamples/2) + mu
+}
+
 function run() {
   var pos = document.getElementById("pos").value;
   var torq = document.getElementById("torq").value;
-  getPrediction(parseFloat(pos), parseFloat(torq))
+
+  var noise_pos = normal(parseFloat(pos), 0.6, 1)
+  console.log(noise_pos)
+
+  getPrediction(noise_pos, parseFloat(torq))
     .then((pred) => {setResult(pred)});
 }
 
