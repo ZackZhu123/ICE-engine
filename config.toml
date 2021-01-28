@@ -25,7 +25,7 @@ pygmentsStyle = "pygments"
   dateFormat = "2006-01-02"
 
   # Footer text, can be markdown
-  footer = "Made with [Hugo](https://gohugo.io/). Themed by [Cayman](https://github.com/zwbetz-gh/cayman-hugo-theme)."
+  footer = "Xiner Zhu | Imperial College London - Mechanical Egnineering"
 
   # If true, the CSS/JS for Katex math typesetting are enabled
   katex = true
@@ -63,10 +63,6 @@ pygmentsStyle = "pygments"
     name = "About"
     url = "/about/"
     weight = 2
-  [[menu.nav]]
-    name = "Theory"
-    url = "/about/"
-    weight = 3
   [[menu.nav]]
     name = "Lab"
     url = "/lab/"

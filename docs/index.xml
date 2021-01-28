@@ -13,7 +13,7 @@
       <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://zackzhu123.github.io/ICE-engine/about/</guid>
-      <description>A web tool to simulate an engine.</description>
+      <description>The Background An internal combustion engine (ICE) is a heat engine in which the combustion of a fuel occurs with an oxidizer (usually air) in a combustion chamber that is an integral part of the working fluid flow circuit. In an internal combustion engine, the expansion of the high-temperature and high-pressure gases produced by combustion applies direct force to some component of the engine. The force is applied typically to pistons, turbine blades, rotor or a nozzle.</description>
     </item>
     
     <item>
@@ -68,6 +68,17 @@ This document is a brief primer on using Go templates.</description>
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/▾ images/logo.png should become
 ▾ &amp;lt;root&amp;gt;/▾ static/▾ images/logo.png Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zackzhu123.github.io/ICE-engine/lab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/lab/</guid>
+      <description>Virtual Lab Diesel&amp;nbsp; Petrol  Input
+Position: 15 %  Torque: 20 Nm    Get Simulation Results   Output
+Air Flow Pressure (Pa):   Engine Speed (rpm):   Fuel Flow Rate (cm^3/min):   const getPrediction = async function (position, torque, type) { if (type === &#34;diesel&#34;) { const model = await tf.loadLayersModel(&#39;https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json&#39;); pred = model.predict(tf.tensor([position, torque]).reshape([1, 2])); return pred.data(); } else { const model = await tf.</description>
     </item>
     
   </channel>

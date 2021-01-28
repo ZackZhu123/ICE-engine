@@ -1,57 +1,231 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.79.1" />
+  <link rel="stylesheet" href="https://zackzhu123.github.io/ICE-engine/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://zackzhu123.github.io/ICE-engine/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title> | Powered by Deep Learning</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    Engine Virtual Lab
+  </h1>
+  <h2 class="project-tagline">
+    An Deep-Learning Powerd Engine Simulation Tool
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/" class="btn">Home</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/about/" class="btn">About</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/lab/" class="btn">Lab</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1></h1>
+  <!DOCTYPE html>
 <html>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+
 <body>
+  <h2>Virtual Lab</h2>
 
-<h2>Virtual Lab</h2>
-<p>Virtual Lab Test Page</p>
+  <div class="btn-group">
+    <input
+      type="radio"
+      class="btn-check"
+      name="options"
+      id="diesel"
+      autocomplete="off"
+      checked
+    />
+    <label class="btn-secondary" for="diesel">Diesel&nbsp;</label>
+    <input type="radio" class="btn-check" name="options" id="petrol" autocomplete="off" />
+    <label class="btn-secondary" for="petrol">Petrol</label>
 
-Position (0.0 - 0.1): <input type="text" id="pos" size="20" name="fname"><br>
-Torque (1 - 10): <input type="text" id="torq" size="20" name="age"><br>
-<button onclick="run()">Run</button>
+  </div>
 
-<p>Results</p>
-<p>Air Flow Pressure (Pa):</p> <label id="afp"></label>
-<p>Engine Speed (rpm):</p> <label id="speed"></label>
-<p>Fuel Flow Rate (cm^3/min):</p> <label id="ffr"></label>
+  <p class="bold">Input</p>
+  Position: <span id="posValue" class="bold">15</span> %
+  <div class="slidecontainer">
+    <input type="range" min="1" max="50" value="15" class="slider" id="pos">
+  </div>
 
-<script>
-const getPrediction = async function(position, torque) {
-  const model = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/model_without_noise/model.json');
-  pred = model.predict(tf.tensor([position, torque]).reshape([1, 2]));
-  return pred.data();
-}
+  Torque: <span id="torqValue" class="bold">20</span> Nm
+  <div class="slidecontainer">
+    <input type="range" min="1" max="100" value="20" class="slider" id="torq">
+  </div>
+  </br>
+  </br>
+  <button onclick="run()">Get Simulation Results</button>
+  </br>
+  </br>
+  <p class="bold">Output</p>
+  Air Flow Pressure (Pa): <span id="afp" class="bold"></span>
+  </br>
+  Engine Speed (rpm): <span id="speed" class="bold"></span>
+  </br>
+  Fuel Flow Rate (cm^3/min): <span id="ffr" class="bold"></span>
 
-function normal(mu, sigma, nsamples){ // using central limit
-    if(!nsamples) nsamples = 3
-    if(!sigma) sigma = 1
-    if(!mu) mu=0
-
-    var run_total = 0
-    for(var i=0 ; i<nsamples ; i++){
-       run_total += Math.random()
+  <script>
+    const getPrediction = async function (position, torque, type) {
+      if (type === "diesel") {
+        const model = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json');
+        pred = model.predict(tf.tensor([position, torque]).reshape([1, 2]));
+        return pred.data();
+      } else {
+        const model = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/petrol/model.json');
+        pred = model.predict(tf.tensor([position, torque]).reshape([1, 2]));
+        return pred.data();
+      }
     }
 
-    return sigma*(run_total - nsamples/2)/(nsamples/2) + mu
-}
+    var radioButtons = document.getElementsByName("options")
+    var posSlider = document.getElementById("pos");
+    var torqSlider = document.getElementById("torq");
 
-function run() {
-  var pos = document.getElementById("pos").value;
-  var torq = document.getElementById("torq").value;
+    posSlider.oninput = function () {
+      document.getElementById("posValue").innerHTML = this.value;
+    }
+    torqSlider.oninput = function () {
+      document.getElementById("torqValue").innerHTML = this.value;
+    }
 
-  var noise_pos = normal(parseFloat(pos), 0.6, 1)
-  console.log(noise_pos)
+    function getSigma(type) {
+      if (type === "diesel") {
+        return [1.2506192871765371, 0.8401700850752418]
+      } else {
+        return [0.39536827344266434, 0.27096564078006163]
+      }
+    }
 
-  getPrediction(noise_pos, parseFloat(torq))
-    .then((pred) => {setResult(pred)});
-}
+    function getType() {
+      for(var i = 0; i < radioButtons.length; i++) {
+        if(radioButtons[i].checked == true) {
+          return radioButtons[i].id
+        }
+      }
+    }
 
-function setResult(pred) {
-   document.getElementById('afp').innerHTML = pred[0].toString();
-   document.getElementById('speed').innerHTML = pred[1].toString();
-   document.getElementById('ffr').innerHTML = pred[2].toString();
-}
-</script> 
+    function normal(mu, sigma, nsamples) { // using central limit
+      if (!nsamples) nsamples = 3
+      if (!sigma) sigma = 1
+      if (!mu) mu = 0
+      var run_total = 0
+      for (var i = 0; i < nsamples; i++) {
+        run_total += Math.random()
+      }
+      return sigma * (run_total - nsamples / 2) / (nsamples / 2) + mu
+    }
+
+    function run() {
+      var pos = posSlider.value;
+      var torq = torqSlider.value;
+      var type = getType();
+
+      sigma = getSigma(type);
+      var noise_torq = normal(parseFloat(pos), sigma[0], 1)
+      var noise_pos = normal(parseFloat(pos), sigma[1], 1)
+      getPrediction(noise_torq, noise_pos, type)
+        .then((pred) => { setResult(pred) });
+    }
+
+    function setResult(pred) {
+      document.getElementById('afp').innerHTML = pred[2].toString();
+      document.getElementById('speed').innerHTML = pred[0].toString();
+      document.getElementById('ffr').innerHTML = pred[1].toString();
+    }
+  </script>
+  <style>
+    .bold {
+      font-weight: bold;
+    }
+    .slidecontainer {
+      width: 100%;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 50%;
+      height: 25px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    .slider:hover {
+      opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+  </style>
+
+</body>
+
+</html>
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+    Xiner Zhu | Imperial College London - Mechanical Egnineering
+  </span>
+</footer>
+
+  </section>
+  
+  
 
 </body>
 </html>
