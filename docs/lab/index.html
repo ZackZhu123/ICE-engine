@@ -62,6 +62,8 @@
   <!DOCTYPE html>
 <html>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+<script src="https://canvas-gauges.com/download/latest/radial/gauge.min.js"></script>
+<script src="https://unpkg.com/input-knob"></script>
 
 <body>
   <h2>Virtual Lab</h2>
@@ -97,12 +99,54 @@
   </br>
   </br>
   <p class="bold">Output</p>
-  Air Flow Pressure (Pa): <span id="afp" class="bold"></span>
-  </br>
-  Engine Speed (rpm): <span id="speed" class="bold"></span>
-  </br>
-  Fuel Flow Rate (cm^3/min): <span id="ffr" class="bold"></span>
 
+<div2>
+  <div>
+  <canvas
+    id="afp"
+    data-type="radial-gauge"
+    data-width="200"
+    data-height="200"
+    data-major-ticks="0,50,100,150,200,250,300,350,400"
+    data-units="Pa"
+    data-value-box=false
+  >
+  </canvas>
+  </div>
+  Air Flow Pressure
+</div2>
+<div2>
+  <div>
+  <canvas
+  id="speed"
+  data-type="radial-gauge"
+  data-width="200"
+  data-height="200"
+  data-major-ticks="200,400,800,1000,1200,1400,1600,1800,2000"
+  data-units="RPM"
+  data-value-box=false
+  >
+  </canvas>
+  </div>
+Engine Speed
+</div2>
+<div2>
+  <div>
+  <canvas
+    id="ffr"
+    data-type="radial-gauge"
+    data-width="200"
+    data-height="200"
+    data-major-ticks="0,0.5,1,1.5,2,2.5,3,3.5,4"
+    data-units="cm^3/min"
+    data-value-box=false
+  >
+  </canvas>
+  </div>
+  Fuel Flow Rate (cm^3/min)
+</div2>
+
+</canvas>
   <script>
     const getPrediction = async function (position, torque, type) {
       if (type === "diesel") {
@@ -117,6 +161,47 @@
     }
 
     var radioButtons = document.getElementsByName("options")
+
+    function demoKnob() {
+				// Create knob element, 300 x 300 px in size.
+				const knob = pureknob.createKnob(300, 300);
+
+				// Set properties.
+				knob.setProperty('angleStart', -0.75 * Math.PI);
+				knob.setProperty('angleEnd', 0.75 * Math.PI);
+				knob.setProperty('colorFG', '#88ff88');
+				knob.setProperty('trackWidth', 0.4);
+				knob.setProperty('valMin', 0);
+				knob.setProperty('valMax', 100);
+
+				// Set initial value.
+				knob.setValue(50);
+
+				/*
+				 * Event listener.
+				 *
+				 * Parameter 'knob' is the knob object which was
+				 * actuated. Allows you to associate data with
+				 * it to discern which of your knobs was actuated.
+				 *
+				 * Parameter 'value' is the value which was set
+				 * by the user.
+				 */
+				const listener = function(knob, value) {
+					console.log(value);
+				};
+
+				knob.addListener(listener);
+
+				// Create element node.
+				const node = knob.node();
+
+				// Add it to the DOM.
+				const elem = document.getElementById('some_element');
+				elem.appendChild(node);
+			}
+
+
     var posSlider = document.getElementById("pos");
     var torqSlider = document.getElementById("torq");
 
@@ -167,10 +252,17 @@
     }
 
     function setResult(pred) {
-      document.getElementById('afp').innerHTML = pred[2].toString();
-      document.getElementById('speed').innerHTML = pred[0].toString();
-      document.getElementById('ffr').innerHTML = pred[1].toString();
+
+      document.getElementById('afp').setAttribute('data-value', pred[2] /400 * 100);;
+      document.getElementById('speed').setAttribute('data-value', pred[0] /2000 * 100);;
+      document.getElementById('ffr').setAttribute('data-value', pred[1] /4 * 100);
     }
+
+    function ready() {
+				demoKnob();
+    }
+    document.addEventListener('DOMContentLoaded', ready, false);
+
   </script>
   <style>
     .bold {
@@ -210,6 +302,11 @@
       height: 25px;
       background: #4CAF50;
       cursor: pointer;
+    }
+
+    div2 {
+      display: inline-block;
+      text-align: 'center';
     }
   </style>
 
