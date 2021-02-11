@@ -63,7 +63,7 @@
 <html>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 <script src="https://canvas-gauges.com/download/latest/radial/gauge.min.js"></script>
-<script src="https://unpkg.com/input-knob"></script>
+<script src="pureknob.js"></script>
 
 <body>
   <h2>Virtual Lab</h2>
@@ -82,23 +82,22 @@
     <label class="btn-secondary" for="petrol">Petrol</label>
 
   </div>
+  <hr>
+  <div2>
+  <div id="posKnob"></div>
+  Torque(Nm)
+  </div2>
 
-  <p class="bold">Input</p>
-  Position: <span id="posValue" class="bold">15</span> %
-  <div class="slidecontainer">
-    <input type="range" min="1" max="50" value="15" class="slider" id="pos">
-  </div>
+  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
 
-  Torque: <span id="torqValue" class="bold">20</span> Nm
-  <div class="slidecontainer">
-    <input type="range" min="1" max="100" value="20" class="slider" id="torq">
-  </div>
-  </br>
-  </br>
-  <button onclick="run()">Get Simulation Results</button>
-  </br>
-  </br>
-  <p class="bold">Output</p>
+  <div2>
+  <div id="torqKnob"></div>
+  Torque(Nm)
+  </div2>
+
+  <hr>
+</br>
 
 <div2>
   <div>
@@ -115,6 +114,8 @@
   </div>
   Air Flow Pressure
 </div2>
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
 <div2>
   <div>
   <canvas
@@ -130,6 +131,8 @@
   </div>
 Engine Speed
 </div2>
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
 <div2>
   <div>
   <canvas
@@ -160,56 +163,31 @@ Engine Speed
       }
     }
 
+    var pos = 15;
+    var torq = 20;
+
     var radioButtons = document.getElementsByName("options")
+      var posKnob = pureknob.createKnob(100, 100);
+      posKnob.setValue(pos);
+      var posNode = posKnob.node();
+      posKnob.addListener(function(knob, value) {
+        this.pos = value;
+        run()
+      })
+      var posElem = document.getElementById('posKnob');
+
+      var torqKnob = pureknob.createKnob(100, 100);
+      torqKnob.setValue(torq);
+      var torqNode = torqKnob.node();
+      torqKnob.addListener(function(knob, value) {
+        this.torq = value;
+        run()
+      })
+      var torqElem = document.getElementById('torqKnob');
 
     function demoKnob() {
-				// Create knob element, 300 x 300 px in size.
-				const knob = pureknob.createKnob(300, 300);
-
-				// Set properties.
-				knob.setProperty('angleStart', -0.75 * Math.PI);
-				knob.setProperty('angleEnd', 0.75 * Math.PI);
-				knob.setProperty('colorFG', '#88ff88');
-				knob.setProperty('trackWidth', 0.4);
-				knob.setProperty('valMin', 0);
-				knob.setProperty('valMax', 100);
-
-				// Set initial value.
-				knob.setValue(50);
-
-				/*
-				 * Event listener.
-				 *
-				 * Parameter 'knob' is the knob object which was
-				 * actuated. Allows you to associate data with
-				 * it to discern which of your knobs was actuated.
-				 *
-				 * Parameter 'value' is the value which was set
-				 * by the user.
-				 */
-				const listener = function(knob, value) {
-					console.log(value);
-				};
-
-				knob.addListener(listener);
-
-				// Create element node.
-				const node = knob.node();
-
-				// Add it to the DOM.
-				const elem = document.getElementById('some_element');
-				elem.appendChild(node);
-			}
-
-
-    var posSlider = document.getElementById("pos");
-    var torqSlider = document.getElementById("torq");
-
-    posSlider.oninput = function () {
-      document.getElementById("posValue").innerHTML = this.value;
-    }
-    torqSlider.oninput = function () {
-      document.getElementById("torqValue").innerHTML = this.value;
+      posElem.appendChild(posNode);
+      torqElem.appendChild(torqNode);
     }
 
     function getSigma(type) {
@@ -240,12 +218,9 @@ Engine Speed
     }
 
     function run() {
-      var pos = posSlider.value;
-      var torq = torqSlider.value;
       var type = getType();
-
       sigma = getSigma(type);
-      var noise_torq = normal(parseFloat(pos), sigma[0], 1)
+      var noise_torq = normal(parseFloat(torq), sigma[0], 1)
       var noise_pos = normal(parseFloat(pos), sigma[1], 1)
       getPrediction(noise_torq, noise_pos, type)
         .then((pred) => { setResult(pred) });
@@ -257,11 +232,7 @@ Engine Speed
       document.getElementById('speed').setAttribute('data-value', pred[0] /2000 * 100);;
       document.getElementById('ffr').setAttribute('data-value', pred[1] /4 * 100);
     }
-
-    function ready() {
-				demoKnob();
-    }
-    document.addEventListener('DOMContentLoaded', ready, false);
+    document.addEventListener('DOMContentLoaded', demoKnob, false);
 
   </script>
   <style>
@@ -306,11 +277,11 @@ Engine Speed
 
     div2 {
       display: inline-block;
-      text-align: 'center';
     }
   </style>
 
 </body>
+
 
 </html>
 
