@@ -56,15 +56,14 @@ pygmentsStyle = "pygments"
 
 [menu]
   [[menu.nav]]
-    name = "Home"
+    name = "Intoduction"
     url = "/"
     weight = 1
-  # Tem remove
-  #[[menu.nav]]
-  #  name = "About"
-  #  url = "/about/"
-  #  weight = 2
   [[menu.nav]]
-    name = "Lab"
+    name = "About"
+    url = "/about/"
+    weight = 2
+  [[menu.nav]]
+    name = "Virtual Lab"
     url = "/lab/"
     weight = 4
