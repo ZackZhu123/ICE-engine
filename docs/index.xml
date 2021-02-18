@@ -76,7 +76,9 @@ This document is a brief primer on using Go templates.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zackzhu123.github.io/ICE-engine/lab/</guid>
-      <description>Virtual Lab Diesel&amp;nbsp; Petrol     Torque(Nm)  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;   Torque(Nm)        Air Flow Pressure  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Engine Speed  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Fuel Flow Rate (cm^3/min)    const getPrediction = async function (position, torque, type) { if (type === &#34;diesel&#34;) { const model = await tf.</description>
+      <description>Virtual Lab Diesel&amp;nbsp; Petrol      Speed (rpm)
+ &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Torque (Nm)
+       Air Flow Pressure  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Fuel Flow Rate   let speedDial = new Knob({ id: &#34;speed&#34;, size: &#34;xlarge&#34;, type: &#34;Vintage&#34;, lowVal: 0, highVal: 50, value: 15, label: true, sensitivity: 0.2, lblTxtColor: &#34;</description>
     </item>
     
   </channel>

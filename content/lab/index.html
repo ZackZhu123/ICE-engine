@@ -4,6 +4,7 @@
 <html>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 <script src="https://canvas-gauges.com/download/latest/radial/gauge.min.js"></script>
+<script src="https://colinbd.github.io/JSAudioKnobs/knobs.js"></script>
 <script src="pureknob.js"></script>
 
 <body>
@@ -24,17 +25,23 @@
 
   </div>
   <hr>
-  <div2>
-  <div id="posKnob"></div>
-  Torque(Nm)
+  <div2 >
+  <!--div id="posKnob"></div-->
+  <div class="container">
+  <div class="knob" id="speed"></div>
+  </div>
+  <p>Speed (rpm)</p>
   </div2>
 
   &nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;
 
   <div2>
-  <div id="torqKnob"></div>
-  Torque(Nm)
+  <!--div id="torqKnob"></div-->
+  <div class="container">
+  <div class="knob" id="torque"></div>
+  </div>
+  <p>Torque (Nm)</p>
   </div2>
 
   <hr>
@@ -45,8 +52,8 @@
   <canvas
     id="afp"
     data-type="radial-gauge"
-    data-width="200"
-    data-height="200"
+    data-width="180"
+    data-height="180"
     data-major-ticks="0,50,100,150,200,250,300,350,400"
     data-units="Pa"
     data-value-box=false
@@ -60,38 +67,42 @@
 <div2>
   <div>
   <canvas
-  id="speed"
-  data-type="radial-gauge"
-  data-width="200"
-  data-height="200"
-  data-major-ticks="200,400,800,1000,1200,1400,1600,1800,2000"
-  data-units="RPM"
-  data-value-box=false
-  >
-  </canvas>
-  </div>
-Engine Speed
-</div2>
-&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;
-<div2>
-  <div>
-  <canvas
     id="ffr"
     data-type="radial-gauge"
-    data-width="200"
-    data-height="200"
+    data-width="180"
+    data-height="180"
     data-major-ticks="0,0.5,1,1.5,2,2.5,3,3.5,4"
     data-units="cm^3/min"
     data-value-box=false
   >
   </canvas>
   </div>
-  Fuel Flow Rate (cm^3/min)
+  Fuel Flow Rate
 </div2>
 
-</canvas>
-  <script>
+<script>
+    let speedDial = new Knob({
+      id: "speed",
+      size: "xlarge",
+      type: "Vintage",
+      lowVal: 0,
+      highVal: 50,
+      value: 15,
+      label: true,
+      sensitivity: 0.2,
+      lblTxtColor: "#000000"
+    });
+    let torqDial = new Knob({
+      id: "torque",
+      size: "xlarge",
+      type: "Vintage",
+      lowVal: 0,
+      highVal: 50,
+      value: 20,
+      label: true,
+      sensitivity: 0.2,
+      lblTxtColor: "#000000"
+    });
     const getPrediction = async function (position, torque, type) {
       if (type === "diesel") {
         const model = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json');
@@ -106,9 +117,10 @@ Engine Speed
 
     var pos = 15;
     var torq = 20;
+    var dim = 180;
 
     var radioButtons = document.getElementsByName("options")
-      var posKnob = pureknob.createKnob(100, 100);
+      var posKnob = pureknob.createKnob(dim, dim);
       posKnob.setValue(pos);
       var posNode = posKnob.node();
       posKnob.addListener(function(knob, value) {
@@ -117,7 +129,7 @@ Engine Speed
       })
       var posElem = document.getElementById('posKnob');
 
-      var torqKnob = pureknob.createKnob(100, 100);
+      var torqKnob = pureknob.createKnob(dim, dim);
       torqKnob.setValue(torq);
       var torqNode = torqKnob.node();
       torqKnob.addListener(function(knob, value) {
@@ -125,6 +137,12 @@ Engine Speed
         run()
       })
       var torqElem = document.getElementById('torqKnob');
+
+    function knobChanged(id, val) {
+      if (id == 'torque') this.torq = val
+      else this.pos = val
+      run()
+    }
 
     function demoKnob() {
       posElem.appendChild(posNode);
@@ -170,7 +188,6 @@ Engine Speed
     function setResult(pred) {
 
       document.getElementById('afp').setAttribute('data-value', pred[2] /400 * 100);;
-      document.getElementById('speed').setAttribute('data-value', pred[0] /2000 * 100);;
       document.getElementById('ffr').setAttribute('data-value', pred[1] /4 * 100);
     }
     document.addEventListener('DOMContentLoaded', demoKnob, false);
@@ -180,45 +197,19 @@ Engine Speed
     .bold {
       font-weight: bold;
     }
-    .slidecontainer {
-      width: 100%;
-    }
-
-    .slider {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 50%;
-      height: 25px;
-      background: #d3d3d3;
-      outline: none;
-      opacity: 0.7;
-      -webkit-transition: .2s;
-      transition: opacity .2s;
-    }
-
-    .slider:hover {
-      opacity: 1;
-    }
-
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 25px;
-      height: 25px;
-      background: #4CAF50;
-      cursor: pointer;
-    }
-
-    .slider::-moz-range-thumb {
-      width: 25px;
-      height: 25px;
-      background: #4CAF50;
-      cursor: pointer;
-    }
 
     div2 {
       display: inline-block;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
+
+    div.container {
+      min-block-size: 130px;
+      min-inline-size: 130px;
+    }
+
   </style>
 
 </body>
