@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://zackzhu123.github.io/ICE-engine/about/</loc>
-    <lastmod>2021-01-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://zackzhu123.github.io/ICE-engine/cayman-typography/</loc>
     <lastmod>2019-03-29T00:00:00+00:00</lastmod>
   </url>
@@ -142,13 +137,23 @@
   </url>
   
   <url>
+    <loc>https://zackzhu123.github.io/ICE-engine/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://zackzhu123.github.io/ICE-engine/documentation/</loc>
+  </url>
+  
+  <url>
     <loc>https://zackzhu123.github.io/ICE-engine/objectives/</loc>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://zackzhu123.github.io/ICE-engine/procedure/</loc>
   </url>
   
   <url>
     <loc>https://zackzhu123.github.io/ICE-engine/theory/</loc>
-    <priority>0</priority>
   </url>
   
   <url>

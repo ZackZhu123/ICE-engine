@@ -21,7 +21,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 
-  <title> | Powered by Deep Learning</title>
+  <title>Theory | Powered by Deep Learning</title>
 </head>
 
 <body>
@@ -45,7 +45,19 @@
       
       
       
-      <a href="/ICE-engine/about/" class="btn">About</a>
+      <a href="/ICE-engine/theory/" class="btn">Theory</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/objectives/" class="btn">Objectives</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/procedure/" class="btn">Procedure</a>
     
       
       
@@ -57,14 +69,20 @@
       
       
       
-      <a href="/ICE-engine/theory/" class="btn">Theory</a>
+      <a href="/ICE-engine/documentation/" class="btn">Documentation</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/about/" class="btn">About</a>
     
   </nav>
 </section>
 
   <section class="main-content">
     
-  <h1></h1>
+  <h1>Theory</h1>
   <h3 id="fundamentals-of-reciprocating-engines-for-back--ground-information-only">Fundamentals of reciprocating engines (for back- ground information only)</h3>
 <p>The applications of reciprocating internal-combustion (IC) engines are more numer- ous than those of other types of power plant. They include road and off-road vehicles, railway locomotives, ships and smaller marine craft, light aircraft, horticultural ma- chinery, on-site electricity generation (where possible with exhaust energy recovery for space heating, as in the Imperial College combined-heat-and-power (CHP) plant installed in 1999). The output power ranges from below 1 kW (e.g. small lawn-mower engines) to more than 20 MW (large ship and stationary engines).
 One complete cycle of operation of a 4-stroke IC engine consists of the following events:</p>
@@ -92,11 +110,11 @@ from measurements of angular speed ω using a tachometer and torque T using a dy
 <p>Wnet is called indicated power, W, when it is obtained from the enclosed area of a
 measured P–V, or indicator, diagram. Indicator diagrams or, more commonly, pres- sure vs crank angle diagrams, would normally be recorded on an oscilloscope or a digital data acquisition system, using a fast-response in-cylinder pressure transducer and a suitable sensor on the crankshaft to trigger the time base. The engines in this experiment are not equipped for obtaining indicator diagrams. Very-low-speed (less than 500 rev/min) engines allow the use of a purely-mechanical indicator mechanism. Indicated power is greater than brake power since it represents the net rate of work transfer from the gas to the piston, before accounting for mechanical losses. The difference between them, W − Wb , is known as the friction power, the power absorbed by friction in the engine’s mechanism (between piston rings and cylinder wall, in the shaft bearings etc.). Friction power is mainly dependent on engine speed and can be measured approximately by motoring the engine, i.e. measuring the power used by an electric dynamometer operating as a motor to turn the engine with its fuel supply cut off. Measurements of brake and friction power allow the indicated power to be estimated in the absence of the equipment needed for an indicator diagram; how- ever, since hydraulic dynamometers are used in this experiment, the engines cannot be motored.</p>
 <p>The thermal efficiency ηth of a real IC engine, often called fuel conversion efficiency, can be defined by</p>
-<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/1.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/1.png" alt="1"></p>
 <p>where CVƒ is the calorific value (or heating value) of the fuel. CVƒ is essentially the energy in chemical bonds which is transformed to internal energy during combus- tion of unit mass of fuel (under certain conditions which will be explained in ME2 TF Thermodynamics). When Wb is used as Wnet, the corresponding efficiency is called</p>
 <p>brake thermal efficiency. The ratio of brake to indicated power is the mechanical effi- ciency; like friction power, it is not a thermodynamic quantity but reflects the engine mechanical design and the quality of lubrication.
 Instead of thermal efficiency, automotive engineers prefer to use the quantity specific fuel consumption, sfc, defined as fuel mass flow rate divided by net shaft power. This a practical inverse measure of engine efficiency, with the fuel calorific value omitted since a given type of engine will normally be restricted to one type of fuel. Use of brake power in the denominator gives brake specific fuel consumption, bsfc:</p>
-<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/2.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/2.png" alt="2"></p>
 <p>̇Rather than the SI unit of kg/s per kW, or kg/kJ, it is usual to express bsfc in g/kWh. Typical best values of bsfc for automotive (high speed) engines are around 270 g/kWh for SI and 200 g/kWh for CI. With a typical liquid fuel CVƒ of 44000 kJ/kg, the corre- sponding values of ηth are approximately 30% and 40% respectively. The best bsfc for large low-speed marine and stationary engines is typically 200 g/kWh for SI and 180 g/kWh for CI. Do not expect the engines in this experiment, under the selected operating conditions, to perform as well as this!</p>
 <h4 id="2-mean-effective-pressure">2 Mean effective pressure</h4>
 <p>Another very common measure of engine performance is mean effective pressure, mep. This is defined as the net work per cycle per unit of displaced (or swept) volume so that it is independent of the size and number of cylinders and of engine speed. It is therefore representative of engine type and design rather than size. It has little to do with the peak pressure in the cylinders and is called a pressure only because it has the units of pressure (work divided by volume). mep is a fictitious pressure which, when multiplied by the displaced volume Vd of the cylinder(s), gives the same net work per cycle as the actual engine. In general1,
@@ -105,14 +123,14 @@ Instead of thermal efficiency, automotive engineers prefer to use the quantity s
 <p>mep = Wnetper cycle/Vd</p>
 </blockquote>
 <p>Using brake work, obtained from a dynamometer, the mep is known as the brake mean effective pressure, bmep. Now ’per cycle’ means ’per two crankshaft revo- lutions’ for a 4-stroke engine, so for an engine speed N expressed in rev/min, the number of cycles per second is N / (2 x 60). Thus</p>
-<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/3.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/3.png" alt="3"></p>
 <p>For an engine of given cylinder capacity (the total displaced volume of all the cylinders), a larger bmep means higher power output at a given speed.</p>
 <p>Use of indicated instead of brake work would give the indicated mean effective pres- sure, imep. As sketched in Figure 1, this may be visualised on an engine indicator diagram as the height of a rectangle whose enclosed area is the same as that of the actual pressure vs volume trace.</p>
 <p>(The rectangle must have the same horizontal dimension as the indicator diagram, i.e. Vd per cylinder, but its vertical position on the diagram is arbitrary.)</p>
 <p>For a given 4-stroke engine, brake mean effective pressure is proportional to torque,
 since</p>
-<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/4.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/5.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/4.png" alt="4"></p>
+<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/5.png" alt="5"></p>
 <p>where N and ω are the rotational speed in rev/min and rad/s respectively. Hence</p>
 <blockquote>
 <p>bmep = (4π/Vd)T.</p>
@@ -120,7 +138,7 @@ since</p>
 <p>An SI engine will normally have a higher bmep than a similar size of CI engine since it needs a near stoichiometric2 air-to-fuel mass ratio (AFR), around 14–15 for liquid fuels, whereas CI engine AFR is greater (lean, or weak, burning, with excess air). The SI engine therefore burns more fuel per cycle.</p>
 <h4 id="3-volumetric-efficiency">3 Volumetric efficiency</h4>
 <p>The air or air-fuel vapour mixture entering the cylinders of a naturally-aspirated (i.e. not turbocharged) engine is at a lower density than the ambient air, because of fric- tional pressure loss in the intake and inlet valves and because of heating (the inlet manifold is hot). The mass of air induced is therefore less than ρmbVd, where ρmb is the ambient air density. Hence the engine’s power output is less than might be expected. A measure of this effect is the volumetric efficiency ηo . It represents the ’breathing capacity’ of an engine and is defined for 4-stroke engines as:</p>
-<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/6.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/6.png" alt="6"></p>
 <p>Another reminder: &ldquo;per cycle&rdquo; means &ldquo;per two crankshaft revolutions&rdquo; for 4-stroke engines. For example, at a speed of 2400 rev/min, the no. of cycles in unit time is 12 x 2400/60 = 20 per s. For multi-cylinder engines, it makes no difference whether the volumes or masses refer to one of the cylinders or to all of them. Since frictional pressure loss increases with flow rate, ηvol decreases as engine speed rises, but typical maximum values are 80–90% for SI engines and up to 95% for CI engines. The additional pressure drop due to a partly-closed throttle in an SI engine will lead to a volumetric efficiency much lower than these figures. Newer engines with four valves per cylinder will have higher ηvol than those in the experiment, with two valves per cylinder, because the air flow rate and hence the pressure loss in each valve is lower.</p>
 
 
