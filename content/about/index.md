@@ -1,6 +1,5 @@
 ---
 title: "About"
-date: 2021-01-15
 ---
 
 ## Developers Team:

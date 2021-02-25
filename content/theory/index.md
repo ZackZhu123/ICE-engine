@@ -1,3 +1,6 @@
+---
+title: Theory
+---
 
 ### Fundamentals of reciprocating engines (for back- ground information only)
 The applications of reciprocating internal-combustion (IC) engines are more numer- ous than those of other types of power plant. They include road and off-road vehicles, railway locomotives, ships and smaller marine craft, light aircraft, horticultural ma- chinery, on-site electricity generation (where possible with exhaust energy recovery for space heating, as in the Imperial College combined-heat-and-power (CHP) plant installed in 1999). The output power ranges from below 1 kW (e.g. small lawn-mower engines) to more than 20 MW (large ship and stationary engines).
@@ -36,14 +39,14 @@ measured P–V, or indicator, diagram. Indicator diagrams or, more commonly, pre
 
 The thermal efficiency ηth of a real IC engine, often called fuel conversion efficiency, can be defined by
 
-![](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/1.png)
+![1](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/1.png)
 
 where CVƒ is the calorific value (or heating value) of the fuel. CVƒ is essentially the energy in chemical bonds which is transformed to internal energy during combus- tion of unit mass of fuel (under certain conditions which will be explained in ME2 TF Thermodynamics). When Wb is used as Wnet, the corresponding efficiency is called
 
 brake thermal efficiency. The ratio of brake to indicated power is the mechanical effi- ciency; like friction power, it is not a thermodynamic quantity but reflects the engine mechanical design and the quality of lubrication.
 Instead of thermal efficiency, automotive engineers prefer to use the quantity specific fuel consumption, sfc, defined as fuel mass flow rate divided by net shaft power. This a practical inverse measure of engine efficiency, with the fuel calorific value omitted since a given type of engine will normally be restricted to one type of fuel. Use of brake power in the denominator gives brake specific fuel consumption, bsfc:
 
-![](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/2.png)
+![2](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/2.png)
 
 ̇Rather than the SI unit of kg/s per kW, or kg/kJ, it is usual to express bsfc in g/kWh. Typical best values of bsfc for automotive (high speed) engines are around 270 g/kWh for SI and 200 g/kWh for CI. With a typical liquid fuel CVƒ of 44000 kJ/kg, the corre- sponding values of ηth are approximately 30% and 40% respectively. The best bsfc for large low-speed marine and stationary engines is typically 200 g/kWh for SI and 180 g/kWh for CI. Do not expect the engines in this experiment, under the selected operating conditions, to perform as well as this!
 
@@ -54,7 +57,7 @@ Another very common measure of engine performance is mean effective pressure, me
 
 Using brake work, obtained from a dynamometer, the mep is known as the brake mean effective pressure, bmep. Now ’per cycle’ means ’per two crankshaft revo- lutions’ for a 4-stroke engine, so for an engine speed N expressed in rev/min, the number of cycles per second is N / (2 x 60). Thus
 
-![](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/3.png)
+![3](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/3.png)
 
 For an engine of given cylinder capacity (the total displaced volume of all the cylinders), a larger bmep means higher power output at a given speed.
 
@@ -65,9 +68,9 @@ Use of indicated instead of brake work would give the indicated mean effective p
 For a given 4-stroke engine, brake mean effective pressure is proportional to torque,
 since
 
-![](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/4.png)
+![4](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/4.png)
 
-![](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/5.png)
+![5](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/5.png)
 
 where N and ω are the rotational speed in rev/min and rad/s respectively. Hence
 
@@ -78,6 +81,6 @@ An SI engine will normally have a higher bmep than a similar size of CI engine s
 #### 3 Volumetric efficiency
 The air or air-fuel vapour mixture entering the cylinders of a naturally-aspirated (i.e. not turbocharged) engine is at a lower density than the ambient air, because of fric- tional pressure loss in the intake and inlet valves and because of heating (the inlet manifold is hot). The mass of air induced is therefore less than ρmbVd, where ρmb is the ambient air density. Hence the engine’s power output is less than might be expected. A measure of this effect is the volumetric efficiency ηo . It represents the ’breathing capacity’ of an engine and is defined for 4-stroke engines as:
 
-![](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/6.png)
+![6](https://raw.githubusercontent.com/zackzhu123/ICE-engine/master/docs/6.png)
 
 Another reminder: "per cycle" means "per two crankshaft revolutions" for 4-stroke engines. For example, at a speed of 2400 rev/min, the no. of cycles in unit time is 12 x 2400/60 = 20 per s. For multi-cylinder engines, it makes no difference whether the volumes or masses refer to one of the cylinders or to all of them. Since frictional pressure loss increases with flow rate, ηvol decreases as engine speed rises, but typical maximum values are 80–90% for SI engines and up to 95% for CI engines. The additional pressure drop due to a partly-closed throttle in an SI engine will lead to a volumetric efficiency much lower than these figures. Newer engines with four valves per cylinder will have higher ηvol than those in the experiment, with two valves per cylinder, because the air flow rate and hence the pressure loss in each valve is lower.

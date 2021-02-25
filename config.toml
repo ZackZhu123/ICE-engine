@@ -60,14 +60,27 @@ pygmentsStyle = "pygments"
     url = "/"
     weight = 1
   [[menu.nav]]
-    name = "About"
-    url = "/about/"
+    name = "Theory"
+    url = "/theory/"
     weight = 2
+  [[menu.nav]]
+    name = "Objectives"
+    url = "/objectives/"
+    weight = 3
+  [[menu.nav]]
+    name = "Procedure"
+    url = "/procedure/"
+    weight = 4
   [[menu.nav]]
     name = "Virtual Lab"
     url = "/lab/"
-    weight = 4
-  [[menu.nav]]
-    name = "Theory"
-    url = "/theory/"
     weight = 5
+  [[menu.nav]]
+    name = "Documentation"
+    url = "/documentation/"
+    weight = 6
+  [[menu.nav]]
+    name = "About"
+    url = "/about/"
+    weight = 7
+
