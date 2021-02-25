@@ -86,5 +86,34 @@ This document is a brief primer on using Go templates.</description>
        Air Flow Pressure  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Fuel Flow Rate   let speedDial = new Knob({ id: &#34;speed&#34;, size: &#34;xlarge&#34;, type: &#34;Vintage&#34;, lowVal: 0, highVal: 50, value: 15, label: true, sensitivity: 0.2, lblTxtColor: &#34;</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://zackzhu123.github.io/ICE-engine/objectives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/objectives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zackzhu123.github.io/ICE-engine/theory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/theory/</guid>
+      <description>Fundamentals of reciprocating engines (for back- ground information only) The applications of reciprocating internal-combustion (IC) engines are more numer- ous than those of other types of power plant. They include road and off-road vehicles, railway locomotives, ships and smaller marine craft, light aircraft, horticultural ma- chinery, on-site electricity generation (where possible with exhaust energy recovery for space heating, as in the Imperial College combined-heat-and-power (CHP) plant installed in 1999). The output power ranges from below 1 kW (e.</description>
+    </item>
+    
+    <item>
+      <title>Virtual Engine Lab</title>
+      <link>https://zackzhu123.github.io/ICE-engine/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/index.html</guid>
+      <description>This website contains information relating to the internal combustion performance experiment that forms part of the ME1 and ME2 Thermofluids L aboratories. The experiments are designed to reinforce concepts in Thermodynamics with particular reference to the Steady Flow Energy Equation and Efficiency.
+Instrumentation The quantities to be measured are shaft speed, torque, air flow rate and fuel flow rate.
+Shaft speed The tachometer on each engine uses a magnetic sensor whose pulses are converted to rev/min.</description>
+    </item>
+    
   </channel>
 </rss>

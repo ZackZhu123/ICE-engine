@@ -67,3 +67,7 @@ pygmentsStyle = "pygments"
     name = "Virtual Lab"
     url = "/lab/"
     weight = 4
+  [[menu.nav]]
+    name = "Theory"
+    url = "/theory/"
+    weight = 5
