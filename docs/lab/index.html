@@ -133,8 +133,8 @@
   <canvas
     id="afp"
     data-type="radial-gauge"
-    data-width="180"
-    data-height="180"
+    data-width="280"
+    data-height="280"
     data-major-ticks="0,50,100,150,200,250,300,350,400"
     data-units="Pa"
     data-value-box=false
@@ -142,6 +142,8 @@
   </canvas>
   </div>
   Air Flow Pressure
+  <br>
+  <input id="afpv">
 </div2>
 &nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;
@@ -150,8 +152,8 @@
   <canvas
     id="ffr"
     data-type="radial-gauge"
-    data-width="180"
-    data-height="180"
+    data-width="280"
+    data-height="280"
     data-major-ticks="0,0.5,1,1.5,2,2.5,3,3.5,4"
     data-units="cm^3/min"
     data-value-box=false
@@ -159,13 +161,15 @@
   </canvas>
   </div>
   Fuel Flow Rate
+  <br>
+  <input id="ffrv">
 </div2>
 
 <script>
     let speedDial = new Knob({
       id: "speed",
       size: "xlarge",
-      type: "Vintage",
+      type: "Oscar",
       lowVal: 0,
       highVal: 50,
       value: 15,
@@ -176,7 +180,7 @@
     let torqDial = new Knob({
       id: "torque",
       size: "xlarge",
-      type: "Vintage",
+      type: "Oscar",
       lowVal: 0,
       highVal: 50,
       value: 20,
@@ -268,8 +272,10 @@
 
     function setResult(pred) {
 
-      document.getElementById('afp').setAttribute('data-value', pred[2] /400 * 100);;
+      document.getElementById('afp').setAttribute('data-value', pred[2] /400 * 100);
       document.getElementById('ffr').setAttribute('data-value', pred[1] /4 * 100);
+      document.getElementById('afpv').value = pred[2];
+      document.getElementById('ffrv').value = pred[1];
     }
     document.addEventListener('DOMContentLoaded', demoKnob, false);
 

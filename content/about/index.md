@@ -4,15 +4,15 @@ title: "About"
 
 ## Developers Team:
 
-Xiner Zhu (Department of Mechanical Engineering, Imperial College London)
+**Xiner Zhu** (Department of Mechanical Engineering, Imperial College London)
 
-Ollie Inglis (Ed Tech Team, Faculty of Engineering, Imperial College London)
+**Ollie Inglis** (Ed Tech Team, Faculty of Engineering, Imperial College London)
 
-Peter B Johnson (Department of Mechanical Engineering, Imperial College London)
+**Peter B Johnson** (Department of Mechanical Engineering, Imperial College London)
 
-Matthew D Eaton (Department of Mechanical Engineering, Imperial College London)
+**Matthew D Eaton** (Department of Mechanical Engineering, Imperial College London)
 
-Huizhi Wang (Department of Mechanical Engineering, Imperial College London)
+**Huizhi Wang** (Department of Mechanical Engineering, Imperial College London)
 
 ## Contact us:
 

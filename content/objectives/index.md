@@ -1,5 +1,5 @@
 ---
-title: Objectives
+title:
 ---
 
 ### Aims and objectives of the experiment

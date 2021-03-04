@@ -69,7 +69,17 @@ This document is a brief primer on using Go templates.</description>
       <guid>https://zackzhu123.github.io/ICE-engine/lab/</guid>
       <description>Diesel&amp;nbsp; Petrol      Speed (rpm)
  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Torque (Nm)
-       Air Flow Pressure  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Fuel Flow Rate   let speedDial = new Knob({ id: &#34;speed&#34;, size: &#34;xlarge&#34;, type: &#34;Vintage&#34;, lowVal: 0, highVal: 50, value: 15, label: true, sensitivity: 0.2, lblTxtColor: &#34;#000000&#34; }); let torqDial = new Knob({ id: &#34;</description>
+       Air Flow Pressure  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Fuel Flow Rate   let speedDial = new Knob({ id: &#34;speed&#34;, size: &#34;xlarge&#34;, type: &#34;Oscar&#34;, lowVal: 0, highVal: 50, value: 15, label: true, sensitivity: 0.2, lblTxtColor: &#34;#000000&#34; }); let torqDial = new Knob({ id: &#34;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zackzhu123.github.io/ICE-engine/objectives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/objectives/</guid>
+      <description>Aims and objectives of the experiment The educational aims of this experiment are:
+ To provide practical experience of a power plant and the means to measure its performance To demonstrate the operation of reciprocating internal-combustion engines on test beds To provide experience of measuring the following quantities: torque, power, flow rate To support the teaching of the following topics in Thermodynamics: processes and cycles; heat and work transfers; 1st Law; properties of gases; cycle effi- ciency; Diesel &amp;amp; Otto cycles and practical measures of engine performance To provide limited additional experience in writing a technical report (following the procedures learnt in the ME1 Experimental Reporting Skills course)  The objectives can be stated simply as:</description>
     </item>
     
     <item>
@@ -96,23 +106,13 @@ Contact us: If you spot any bugs or are interested in collaborations, either in 
     </item>
     
     <item>
-      <title>Objectives</title>
-      <link>https://zackzhu123.github.io/ICE-engine/objectives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://zackzhu123.github.io/ICE-engine/objectives/</guid>
-      <description>Aims and objectives of the experiment The educational aims of this experiment are:
- To provide practical experience of a power plant and the means to measure its performance To demonstrate the operation of reciprocating internal-combustion engines on test beds To provide experience of measuring the following quantities: torque, power, flow rate To support the teaching of the following topics in Thermodynamics: processes and cycles; heat and work transfers; 1st Law; properties of gases; cycle effi- ciency; Diesel &amp;amp; Otto cycles and practical measures of engine performance To provide limited additional experience in writing a technical report (following the procedures learnt in the ME1 Experimental Reporting Skills course)  The objectives can be stated simply as:</description>
-    </item>
-    
-    <item>
       <title>Procedure</title>
       <link>https://zackzhu123.github.io/ICE-engine/procedure/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zackzhu123.github.io/ICE-engine/procedure/</guid>
       <description>Before the engines are started, make sure that you have identified all the relevant instruments and controls. In particular, follow the routes taken by air and fuel on their way to the engines and note how the engine is coupled to the dynamometer and how the load is adjusted.
-The engines will be run at one, or two throttle settings (corresponding to a fixed accelerator position whilst driving a car) at these fixed settings, the engine speed will be varied only by changing the load (i.</description>
+  The engines will be run at one, or two throttle settings (corresponding to a fixed accelerator position whilst driving a car) at these fixed settings, the engine speed will be varied only by changing the load (i.</description>
     </item>
     
     <item>
