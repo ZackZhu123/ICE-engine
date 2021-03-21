@@ -2,6 +2,12 @@
 title: Theory
 ---
 
+**Diesel** (Duramax Diesel V8)
+<iframe title="A 3D model" width="600" height="400" src="https://sketchfab.com/models/426ccd32dae84054964dd72acb7f6522/embed?autostart=0&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_watermark=1&amp;ui_watermark_link=1" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+**Petrol** (Ford Gasoline 4.6 V8)
+<iframe title="A 3D model" width="600" height="600" src="https://sketchfab.com/models/eea9d9252ab14298b50699a471dc2cee/embed?autostart=0&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_watermark=1&amp;ui_watermark_link=1" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
 ### Fundamentals of reciprocating engines (for back- ground information only)
 The applications of reciprocating internal-combustion (IC) engines are more numer- ous than those of other types of power plant. They include road and off-road vehicles, railway locomotives, ships and smaller marine craft, light aircraft, horticultural ma- chinery, on-site electricity generation (where possible with exhaust energy recovery for space heating, as in the Imperial College combined-heat-and-power (CHP) plant installed in 1999). The output power ranges from below 1 kW (e.g. small lawn-mower engines) to more than 20 MW (large ship and stationary engines).
 One complete cycle of operation of a 4-stroke IC engine consists of the following events:

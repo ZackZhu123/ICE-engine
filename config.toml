@@ -9,6 +9,9 @@ publishDir = "docs"
 pygmentsCodefences = true
 pygmentsStyle = "pygments"
 
+[markup.goldmark.renderer]
+  unsafe= true
+
 [taxonomies]
   tag = "tags"
 
