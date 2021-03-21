@@ -1,8 +1,20 @@
 {{ define "main" }}
-<h1>Virtual Engine Lab with Deep Learning</h1>
-<div class="sketchfab-embed-wrapper">
-  <p>
-    This website contains information relating to the internal combustion performance experiment that forms part of the ME1 and ME2 Thermofluids L aboratories. The experiments are designed to reinforce concepts in Thermodynamics with particular reference to the Steady Flow Energy Equation and Efficiency.
-  </p>
-</div>
+  <h1>{{ .Title }}</h1>
+  <div>
+    {{ $dateFormat := $.Site.Params.dateFormat | default "Jan 2, 2006" }}
+  </div>
+  {{ $tags := slice }}
+  {{ with .Params.tags }}
+    <div>
+      <strong>Tags: </strong>
+      {{ range . }}
+        {{ $href := print ("tags/" | absLangURL) (. | urlize) "/" }}
+        {{ $element := printf "<a href=\"%s\">%s</a>" $href . }}
+        {{ $tags = $tags | append $element }}
+      {{ end }}
+      {{ delimit $tags ", " }}
+    </div>
+  {{ end }}
+  {{ .Content }}
+  {{ partial "disqus.html" . }}
 {{ end }}
