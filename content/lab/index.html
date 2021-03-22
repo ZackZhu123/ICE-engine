@@ -69,7 +69,7 @@
     data-type="radial-gauge"
     data-width="280"
     data-height="280"
-    data-major-ticks="0,0.5,1,1.5,2,2.5,3,3.5,4"
+    data-major-ticks="0,50,100,150,200,250,300,350,400"
     data-units="cm^3/min"
     data-value-box=false
   >
@@ -208,7 +208,7 @@
       console.log(pred)
       document.getElementById('torq').setAttribute('data-value', pred[0] / 400 * 100);
       document.getElementById('afp').setAttribute('data-value', pred[1] /400 * 100);
-      document.getElementById('ffr').setAttribute('data-value', pred[2] /4 * 100);
+      document.getElementById('ffr').setAttribute('data-value', pred[2] /400 * 100);
       document.getElementById('torqv').value = pred[0];
       document.getElementById('afpv').value = pred[1];
       document.getElementById('ffrv').value = pred[2];
