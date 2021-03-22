@@ -67,9 +67,9 @@ This document is a brief primer on using Go templates.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zackzhu123.github.io/ICE-engine/lab/</guid>
-      <description>Diesel&amp;nbsp; Petrol      Speed (rpm)
- &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Torque (Nm)
-       Air Flow Pressure  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Fuel Flow Rate   let speedDial = new Knob({ id: &#34;speed&#34;, size: &#34;xlarge&#34;, type: &#34;Oscar&#34;, lowVal: 0, highVal: 50, value: 15, label: true, sensitivity: 0.2, lblTxtColor: &#34;#000000&#34; }); let torqDial = new Knob({ id: &#34;</description>
+      <description>Diesel&amp;nbsp; Petrol     Speed (rpm)
+ &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Throttle Positioin (%)
+       Air Flow Pressure  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Fuel Flow Rate  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;     Torq   let speedDial = new Knob({ id: &#34;speed&#34;, size: &#34;xlarge&#34;, type: &#34;Oscar&#34;, lowVal: 0, highVal: 50, value: 20, label: true, sensitivity: 0.</description>
     </item>
     
     <item>

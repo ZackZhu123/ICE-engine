@@ -24,7 +24,6 @@
   </div>
   <hr>
   <div2 >
-  <!--div id="posKnob"></div-->
   <div class="container">
   <div class="knob" id="speed"></div>
   </div>
@@ -35,11 +34,10 @@
   &nbsp;&nbsp;&nbsp;
 
   <div2>
-  <!--div id="torqKnob"></div-->
   <div class="container">
-  <div class="knob" id="torque"></div>
+  <div class="knob" id="pos"></div>
   </div>
-  <p>Torque (Nm)</p>
+  <p>Throttle Positioin (%)</p>
   </div2>
 
   <hr>
@@ -81,21 +79,29 @@
   <br>
   <input id="ffrv">
 </div2>
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+<div2>
+  <div>
+  <canvas
+    id="torq"
+    data-type="radial-gauge"
+    data-width="280"
+    data-height="280"
+    data-major-ticks="0,50,100,150,200,250,300,350,400"
+    data-units="Nm"
+    data-value-box=false
+  >
+  </canvas>
+  </div>
+  Torq
+  <br>
+  <input id="torqv">
+</div2>
 
 <script>
     let speedDial = new Knob({
       id: "speed",
-      size: "xlarge",
-      type: "Oscar",
-      lowVal: 0,
-      highVal: 50,
-      value: 15,
-      label: true,
-      sensitivity: 0.2,
-      lblTxtColor: "#000000"
-    });
-    let torqDial = new Knob({
-      id: "torque",
       size: "xlarge",
       type: "Oscar",
       lowVal: 0,
@@ -105,20 +111,31 @@
       sensitivity: 0.2,
       lblTxtColor: "#000000"
     });
-    const getPrediction = async function (position, torque, type) {
+    let posDial = new Knob({
+      id: "pos",
+      size: "xlarge",
+      type: "Oscar",
+      lowVal: 0,
+      highVal: 50,
+      value: 20,
+      label: true,
+      sensitivity: 0.2,
+      lblTxtColor: "#000000"
+    });
+    const getPrediction = async function (speed, position, type) {
       if (type === "diesel") {
         const model = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json');
-        pred = model.predict(tf.tensor([position, torque]).reshape([1, 2]));
+        pred = model.predict(tf.tensor([speed, position]).reshape([1, 2]));
         return pred.data();
       } else {
         const model = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/petrol/model.json');
-        pred = model.predict(tf.tensor([position, torque]).reshape([1, 2]));
+        pred = model.predict(tf.tensor([speed, position]).reshape([1, 2]));
         return pred.data();
       }
     }
 
-    var pos = 15;
-    var torq = 20;
+    var pos = 20;
+    var speed = 20;
     var dim = 180;
 
     var radioButtons = document.getElementsByName("options")
@@ -131,31 +148,31 @@
       })
       var posElem = document.getElementById('posKnob');
 
-      var torqKnob = pureknob.createKnob(dim, dim);
-      torqKnob.setValue(torq);
-      var torqNode = torqKnob.node();
-      torqKnob.addListener(function(knob, value) {
-        this.torq = value;
+      var speedKnob = pureknob.createKnob(dim, dim);
+      speedKnob.setValue(speed);
+      var speedNode = speedKnob.node();
+      speedKnob.addListener(function(knob, value) {
+        this.speed = value;
         run()
       })
-      var torqElem = document.getElementById('torqKnob');
+      var speedElem = document.getElementById('speedKnob');
 
     function knobChanged(id, val) {
-      if (id == 'torque') this.torq = val
+      if (id == 'speed') this.speed = val
       else this.pos = val
       run()
     }
 
     function demoKnob() {
+      speedElem.appendChild(speedNode);
       posElem.appendChild(posNode);
-      torqElem.appendChild(torqNode);
     }
 
     function getSigma(type) {
       if (type === "diesel") {
-        return [1.2506192871765371, 0.8401700850752418]
+        return [26.7503585335958, 2.162775729864102]
       } else {
-        return [0.39536827344266434, 0.27096564078006163]
+        return [10.035027314473586, 4.662414912756557]
       }
     }
 
@@ -181,18 +198,20 @@
     function run() {
       var type = getType();
       sigma = getSigma(type);
-      var noise_torq = normal(parseFloat(torq), sigma[0], 1)
+      var noise_speed = normal(parseFloat(speed), sigma[0], 1)
       var noise_pos = normal(parseFloat(pos), sigma[1], 1)
-      getPrediction(noise_torq, noise_pos, type)
+      getPrediction(noise_speed, noise_pos, type)
         .then((pred) => { setResult(pred) });
     }
 
     function setResult(pred) {
-
-      document.getElementById('afp').setAttribute('data-value', pred[2] /400 * 100);
-      document.getElementById('ffr').setAttribute('data-value', pred[1] /4 * 100);
-      document.getElementById('afpv').value = pred[2];
-      document.getElementById('ffrv').value = pred[1];
+      console.log(pred)
+      document.getElementById('torq').setAttribute('data-value', pred[0] / 400 * 100);
+      document.getElementById('afp').setAttribute('data-value', pred[1] /400 * 100);
+      document.getElementById('ffr').setAttribute('data-value', pred[2] /4 * 100);
+      document.getElementById('torqv').value = pred[0];
+      document.getElementById('afpv').value = pred[1];
+      document.getElementById('ffrv').value = pred[2];
     }
     document.addEventListener('DOMContentLoaded', demoKnob, false);
 
