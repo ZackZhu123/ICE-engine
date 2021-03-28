@@ -7,99 +7,75 @@
 <script src="https://colinbd.github.io/JSAudioKnobs/knobs.js"></script>
 <script src="pureknob.js"></script>
 
-<body>
+<body onload="init();" class="body">
   <div class="btn-group">
-    <input
-      type="radio"
-      class="btn-check"
-      name="options"
-      id="diesel"
-      autocomplete="off"
-      checked
-    />
+    <input type="radio" class="btn-check" name="options" id="diesel" autocomplete="off" checked />
     <label class="btn-secondary" for="diesel">Diesel&nbsp;</label>
     <input type="radio" class="btn-check" name="options" id="petrol" autocomplete="off" />
     <label class="btn-secondary" for="petrol">Petrol</label>
 
   </div>
-  <hr>
-  <div2 >
-  <div class="container">
-  <div class="knob" id="speed"></div>
-  </div>
-  <p>Speed (rpm)</p>
-  </div2>
+  <div class="panel">
+    <div2>
+      <div class="container">
+        <div class="knob" id="speed"></div>
+      </div>
+      <p>Engine Speed (rpm)</p>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <div class="container">
+        <div class="knob" id="pos"></div>
+      </div>
+      <p>Throttle Positioin (%)</p>
+    </div2>
+    &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
 
-  &nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;
-
-  <div2>
-  <div class="container">
-  <div class="knob" id="pos"></div>
+    <div2>
+      <div>
+        <canvas id="afp" data-type="radial-gauge" data-width="280" data-height="280"
+          data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="Pa" data-value-box=false
+          data-animation-duration="1500" data-animation-rule="linear">
+        </canvas>
+        <p>Air Flow Pressure</p>
+      </div>
+      <input id="afpv">
+    </div2>
+    &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
+    <div2>
+      <div>
+        <canvas id="ffr" data-type="radial-gauge" data-width="280" data-height="280"
+          data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="cm^3/min" data-value-box=false
+          data-animation-rule="linear">
+        </canvas>
+        <p>Fuel Flow Rate</p>
+      </div>
+      <input id="ffrv">
+    </div2>
+    &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
+    <div2>
+      <div>
+        <canvas id="torq" data-type="radial-gauge" data-width="280" data-height="280"
+          data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="Nm" data-value-box=false
+          data-animation-rule="linear">
+        </canvas>
+        <p>Torq</p>
+      </div>
+      <input id="torqv">
+    </div2>
   </div>
-  <p>Throttle Positioin (%)</p>
-  </div2>
 
-  <hr>
-</br>
+  <script>
+    const dieselModel = null;
+    const petrolModel = null;
 
-<div2>
-  <div>
-  <canvas
-    id="afp"
-    data-type="radial-gauge"
-    data-width="280"
-    data-height="280"
-    data-major-ticks="0,50,100,150,200,250,300,350,400"
-    data-units="Pa"
-    data-value-box=false
-  >
-  </canvas>
-  </div>
-  Air Flow Pressure
-  <br>
-  <input id="afpv">
-</div2>
-&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;
-<div2>
-  <div>
-  <canvas
-    id="ffr"
-    data-type="radial-gauge"
-    data-width="280"
-    data-height="280"
-    data-major-ticks="0,50,100,150,200,250,300,350,400"
-    data-units="cm^3/min"
-    data-value-box=false
-  >
-  </canvas>
-  </div>
-  Fuel Flow Rate
-  <br>
-  <input id="ffrv">
-</div2>
-&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;
-<div2>
-  <div>
-  <canvas
-    id="torq"
-    data-type="radial-gauge"
-    data-width="280"
-    data-height="280"
-    data-major-ticks="0,50,100,150,200,250,300,350,400"
-    data-units="Nm"
-    data-value-box=false
-  >
-  </canvas>
-  </div>
-  Torq
-  <br>
-  <input id="torqv">
-</div2>
+    async function init() {
+      this.dieselModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json');
+      this.petrolModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/petrol/model.json');
+    }
 
-<script>
     let speedDial = new Knob({
       id: "speed",
       size: "xlarge",
@@ -124,12 +100,10 @@
     });
     const getPrediction = async function (speed, position, type) {
       if (type === "diesel") {
-        const model = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json');
-        pred = model.predict(tf.tensor([speed, position]).reshape([1, 2]));
+        pred = this.dieselModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
         return pred.data();
       } else {
-        const model = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/petrol/model.json');
-        pred = model.predict(tf.tensor([speed, position]).reshape([1, 2]));
+        pred = this.petrolModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
         return pred.data();
       }
     }
@@ -139,23 +113,23 @@
     var dim = 180;
 
     var radioButtons = document.getElementsByName("options")
-      var posKnob = pureknob.createKnob(dim, dim);
-      posKnob.setValue(pos);
-      var posNode = posKnob.node();
-      posKnob.addListener(function(knob, value) {
-        this.pos = value;
-        run()
-      })
-      var posElem = document.getElementById('posKnob');
+    var posKnob = pureknob.createKnob(dim, dim);
+    posKnob.setValue(pos);
+    var posNode = posKnob.node();
+    posKnob.addListener(function (knob, value) {
+      this.pos = value;
+      run()
+    })
+    var posElem = document.getElementById('posKnob');
 
-      var speedKnob = pureknob.createKnob(dim, dim);
-      speedKnob.setValue(speed);
-      var speedNode = speedKnob.node();
-      speedKnob.addListener(function(knob, value) {
-        this.speed = value;
-        run()
-      })
-      var speedElem = document.getElementById('speedKnob');
+    var speedKnob = pureknob.createKnob(dim, dim);
+    speedKnob.setValue(speed);
+    var speedNode = speedKnob.node();
+    speedKnob.addListener(function (knob, value) {
+      this.speed = value;
+      run()
+    })
+    var speedElem = document.getElementById('speedKnob');
 
     function knobChanged(id, val) {
       if (id == 'speed') this.speed = val
@@ -170,15 +144,15 @@
 
     function getSigma(type) {
       if (type === "diesel") {
-        return [26.7503585335958, 2.162775729864102]
+        return [2.7503585335958, 2.162775729864102]
       } else {
-        return [10.035027314473586, 4.662414912756557]
+        return [1.035027314473586, 2.662414912756557]
       }
     }
 
     function getType() {
-      for(var i = 0; i < radioButtons.length; i++) {
-        if(radioButtons[i].checked == true) {
+      for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked == true) {
           return radioButtons[i].id
         }
       }
@@ -195,30 +169,52 @@
       return sigma * (run_total - nsamples / 2) / (nsamples / 2) + mu
     }
 
+    pred = [];
     function run() {
       var type = getType();
       sigma = getSigma(type);
       var noise_speed = normal(parseFloat(speed), sigma[0], 1)
       var noise_pos = normal(parseFloat(pos), sigma[1], 1)
       getPrediction(noise_speed, noise_pos, type)
-        .then((pred) => { setResult(pred) });
+        .then((pred) => { this.pred = pred });
     }
 
-    function setResult(pred) {
-      console.log(pred)
-      document.getElementById('torq').setAttribute('data-value', pred[0] / 400 * 100);
-      document.getElementById('afp').setAttribute('data-value', pred[1] /400 * 100);
-      document.getElementById('ffr').setAttribute('data-value', pred[2] /400 * 100);
-      document.getElementById('torqv').value = pred[0];
-      document.getElementById('afpv').value = pred[1];
-      document.getElementById('ffrv').value = pred[2];
-    }
+    setTimeout(function () {
+      var interval = setInterval(function setResult() {
+        document.getElementById('torqv').value = this.pred[0];
+        document.getElementById('afpv').value = this.pred[1];
+        document.getElementById('ffrv').value = this.pred[2];
+        document.getElementById('torq').setAttribute('data-value', this.pred[0] / 400 * 100);
+        document.getElementById('afp').setAttribute('data-value', this.pred[1] / 400 * 100);
+        document.getElementById('ffr').setAttribute('data-value', this.pred[2] / 400 * 100);
+      }, 3000);
+    }, 3000)
+
     document.addEventListener('DOMContentLoaded', demoKnob, false);
 
   </script>
   <style>
+    .panel {
+      margin-top: 2rem;
+      padding: 2rem;
+      background-color: rgb(169, 169, 169);
+      border-radius: 2rem;
+      text-align: center;
+      border: solid;
+      border-width: medium;
+      border-color: black;
+    }
+
     .bold {
       font-weight: bold;
+    }
+
+    .main-content {
+      min-width: 88rem;
+    }
+
+    p {
+      color: black;
     }
 
     div2 {
@@ -232,7 +228,6 @@
       min-block-size: 130px;
       min-inline-size: 130px;
     }
-
   </style>
 
 </body>
