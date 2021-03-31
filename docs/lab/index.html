@@ -264,12 +264,14 @@
 
     setTimeout(function () {
       var interval = setInterval(function setResult() {
-        document.getElementById('torqv').value = this.pred[0];
-        document.getElementById('afpv').value = this.pred[1];
-        document.getElementById('ffrv').value = this.pred[2];
-        document.getElementById('torq').setAttribute('data-value', this.pred[0] / 400 * 100);
-        document.getElementById('afp').setAttribute('data-value', this.pred[1] / 400 * 100);
-        document.getElementById('ffr').setAttribute('data-value', this.pred[2] / 400 * 100);
+        if (pred.length > 0) {
+          document.getElementById('torqv').value = this.pred[0];
+          document.getElementById('afpv').value = this.pred[1];
+          document.getElementById('ffrv').value = this.pred[2];
+          document.getElementById('torq').setAttribute('data-value', this.pred[0] / 400 * 100);
+          document.getElementById('afp').setAttribute('data-value', this.pred[1] / 400 * 100);
+          document.getElementById('ffr').setAttribute('data-value', this.pred[2] / 400 * 100);
+        }
       }, 3000);
     }, 3000)
 
@@ -312,10 +314,7 @@
       min-inline-size: 130px;
     }
   </style>
-
 </body>
-
-
 </html>
 
     <footer class="site-footer">
