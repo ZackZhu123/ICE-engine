@@ -93,7 +93,7 @@
       type: "Oscar",
       lowVal: 0,
       highVal: 50,
-      value: 20,
+      value: 0,
       label: true,
       sensitivity: 0.2,
       lblTxtColor: "#000000"
@@ -108,7 +108,7 @@
       }
     }
 
-    var pos = 20;
+    var pos = 0;
     var speed = 0;
     var dim = 180;
 
@@ -144,9 +144,9 @@
 
     function getSigma(type) {
       if (type === "diesel") {
-        return [2.7503585335958, 2.162775729864102]
+        return [1.7503585335958, 1.162775729864102]
       } else {
-        return [1.035027314473586, 2.662414912756557]
+        return [1.035027314473586, 1.662414912756557]
       }
     }
 
