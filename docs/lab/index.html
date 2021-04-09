@@ -197,33 +197,11 @@
     var dim = 180;
 
     var radioButtons = document.getElementsByName("options")
-    var posKnob = pureknob.createKnob(dim, dim);
-    posKnob.setValue(pos);
-    var posNode = posKnob.node();
-    posKnob.addListener(function (knob, value) {
-      this.pos = value;
-      run()
-    })
-    var posElem = document.getElementById('posKnob');
-
-    var speedKnob = pureknob.createKnob(dim, dim);
-    speedKnob.setValue(speed);
-    var speedNode = speedKnob.node();
-    speedKnob.addListener(function (knob, value) {
-      this.speed = value;
-      run()
-    })
-    var speedElem = document.getElementById('speedKnob');
 
     function knobChanged(id, val) {
       if (id == 'speed') this.speed = val
       else this.pos = val
       run()
-    }
-
-    function demoKnob() {
-      speedElem.appendChild(speedNode);
-      posElem.appendChild(posNode);
     }
 
     function getSigma(type) {
