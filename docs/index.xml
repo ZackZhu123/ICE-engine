@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtual Engine Lab on Powered by Deep Learning</title>
+    <link>https://zackzhu123.github.io/ICE-engine/</link>
+    <description>Recent content in Virtual Engine Lab on Powered by Deep Learning</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://zackzhu123.github.io/ICE-engine/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cayman Typography</title>
+      <link>https://zackzhu123.github.io/ICE-engine/cayman-typography/</link>
+      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/cayman-typography/</guid>
+      <description>Text Text can be **bold**, _italic_, or ~~strikethrough~~. [Links](https://github.com) should be blue with no underlines (unless hovered over).Text can be bold, italic, or strikethrough. Links should be blue with no underlines (unless hovered over).
+Paragraph There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.There should be whitespace between paragraphs. There should be whitespace between paragraphs.</description>
+    </item>
+    
+    <item>
+      <title>Katex Math Typesetting</title>
+      <link>https://zackzhu123.github.io/ICE-engine/katex-math-typesetting/</link>
+      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/katex-math-typesetting/</guid>
+      <description>Enable Katex in the config file by setting the katex param to true. This will import the necessary Katex CSS/JS.
+See the online reference of supported TeX functions.
+Note: For inline math to render correctly, your content file extension must be .mmark. See the official mmark site.
+Inline math: $$ \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… $$ Inline math: \( \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… \)
+Block math: $$ \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } $$ Block math:</description>
+    </item>
+    
+    <item>
+      <title>NASA Images</title>
+      <link>https://zackzhu123.github.io/ICE-engine/nasa-images/</link>
+      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/nasa-images/</guid>
+      <description>The below images are from the NASA Image and Video Library &amp;ndash; indulge yourself, revel in their beauty. Also, the built-in figure shortcode is shown for each image.
+ {{&amp;lt; figure img=&amp;quot;sun.jpg&amp;quot; caption=&amp;quot;The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, with internal convective motion that generates a magnetic field via a dynamo process. It is by far the most important source of energy for life on Earth.</description>
+    </item>
+    
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>https://zackzhu123.github.io/ICE-engine/hugo-template-primer/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/hugo-template-primer/</guid>
+      <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
+This document is a brief primer on using Go templates.</description>
+    </item>
+    
+    <item>
+      <title>Migrate to Hugo from Jekyll</title>
+      <link>https://zackzhu123.github.io/ICE-engine/migrate-from-jekyll/</link>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/migrate-from-jekyll/</guid>
+      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &amp;lt;root&amp;gt;/▾ images/logo.png should become
+▾ &amp;lt;root&amp;gt;/▾ static/▾ images/logo.png Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zackzhu123.github.io/ICE-engine/lab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/lab/</guid>
+      <description>Diesel&amp;nbsp; Petrol     Engine Speed (rpm)
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;   Throttle Positioin (%)
+ &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Air Flow Pressure
+  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Fuel Flow Rate
+  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Torq
+    const dieselModel = null; const petrolModel = null; async function init() { this.dieselModel = await tf.loadLayersModel(&#39;https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json&#39;); this.petrolModel = await tf.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zackzhu123.github.io/ICE-engine/objectives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/objectives/</guid>
+      <description>Aims and objectives of the experiment The educational aims of this experiment are:
+ To provide practical experience of a power plant and the means to measure its performance To demonstrate the operation of reciprocating internal-combustion engines on test beds To provide experience of measuring the following quantities: torque, power, flow rate To support the teaching of the following topics in Thermodynamics: processes and cycles; heat and work transfers; 1st Law; properties of gases; cycle effi- ciency; Diesel &amp;amp; Otto cycles and practical measures of engine performance To provide limited additional experience in writing a technical report (following the procedures learnt in the ME1 Experimental Reporting Skills course)  The objectives can be stated simply as:</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://zackzhu123.github.io/ICE-engine/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/about/</guid>
+      <description>Developers Team: Xiner Zhu (Department of Mechanical Engineering, Imperial College London)
+Ollie Inglis (Ed Tech Team, Faculty of Engineering, Imperial College London)
+Oliver Conway (Department of Mechanical Engineering, Imperial College London)
+Trainor Jack (Department of Mechanical Engineering, Imperial College London)
+Peter B Johnson (Department of Mechanical Engineering, Imperial College London)
+Matthew D Eaton (Department of Mechanical Engineering, Imperial College London)
+Huizhi Wang (Department of Mechanical Engineering, Imperial College London)
+Contact us: If you spot any bugs or are interested in collaborations, either in an academic or industrial setting, you can contact us by emailing</description>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://zackzhu123.github.io/ICE-engine/documentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/documentation/</guid>
+      <description>To be updated</description>
+    </item>
+    
+    <item>
+      <title>Procedure</title>
+      <link>https://zackzhu123.github.io/ICE-engine/procedure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/procedure/</guid>
+      <description>Before the engines are started, make sure that you have identified all the relevant instruments and controls. In particular, follow the routes taken by air and fuel on their way to the engines and note how the engine is coupled to the dynamometer and how the load is adjusted.
+  The engines will be run at one, or two throttle settings (corresponding to a fixed accelerator position whilst driving a car) at these fixed settings, the engine speed will be varied only by changing the load (i.</description>
+    </item>
+    
+    <item>
+      <title>Theory</title>
+      <link>https://zackzhu123.github.io/ICE-engine/theory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zackzhu123.github.io/ICE-engine/theory/</guid>
+      <description>Diesel (Duramax Diesel V8)
+ Petrol (Ford Gasoline 4.6 V8)
+ Fundamentals of reciprocating engines (for back- ground information only) The applications of reciprocating internal-combustion (IC) engines are more numer- ous than those of other types of power plant. They include road and off-road vehicles, railway locomotives, ships and smaller marine craft, light aircraft, horticultural ma- chinery, on-site electricity generation (where possible with exhaust energy recovery for space heating, as in the Imperial College combined-heat-and-power (CHP) plant installed in 1999).</description>
+    </item>
+    
+  </channel>
+</rss>

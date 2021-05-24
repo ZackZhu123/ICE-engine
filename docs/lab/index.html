@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.83.1" />
+  <link rel="stylesheet" href="https://zackzhu123.github.io/ICE-engine/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://zackzhu123.github.io/ICE-engine/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title> | Powered by Deep Learning</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <h1 class="project-name">
+    Engine Virtual Lab
+  </h1>
+  <h2 class="project-tagline">
+    An Deep-Learning Powerd Engine Simulation Tool
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/" class="btn">Intoduction</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/theory/" class="btn">Theory</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/objectives/" class="btn">Objectives</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/procedure/" class="btn">Procedure</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/lab/" class="btn">Virtual Lab</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/documentation/" class="btn">Documentation</a>
+    
+      
+      
+      
+      
+      <a href="/ICE-engine/about/" class="btn">About</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1></h1>
+  <!DOCTYPE html>
+<html>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+<script src="https://canvas-gauges.com/download/latest/radial/gauge.min.js"></script>
+<script src="https://colinbd.github.io/JSAudioKnobs/knobs.js"></script>
+<script src="pureknob.js"></script>
+
+<body onload="init();" class="body">
+  <div class="btn-group">
+    <input type="radio" class="btn-check" name="options" id="diesel" autocomplete="off" checked />
+    <label class="btn-secondary" for="diesel">Diesel&nbsp;</label>
+    <input type="radio" class="btn-check" name="options" id="petrol" autocomplete="off" />
+    <label class="btn-secondary" for="petrol">Petrol</label>
+
+  </div>
+  <div class="panel">
+    <div2>
+      <div class="container">
+        <div class="knob" id="speed"></div>
+      </div>
+      <p>Engine Speed (rpm)</p>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <div class="container">
+        <div class="knob" id="pos"></div>
+      </div>
+      <p>Throttle Positioin (%)</p>
+    </div2>
+    &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
+
+
+    <div2>
+      <div>
+        <canvas id="afp" data-type="radial-gauge" data-width="280" data-height="280"
+          data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="Pa" data-value-box=false
+          data-animation-duration="1500" data-animation-rule="linear">
+        </canvas>
+        <p>Air Flow Pressure</p>
+      </div>
+      <input id="afpv" disabled="true">
+    </div2>
+    &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
+    <div2>
+      <div>
+        <canvas id="ffr" data-type="radial-gauge" data-width="280" data-height="280"
+          data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="cm^3/min" data-value-box=false
+          data-animation-rule="linear">
+        </canvas>
+        <p>Fuel Flow Rate</p>
+      </div>
+      <input id="ffrv" disabled="true">
+    </div2>
+    &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
+    <div2>
+      <div>
+        <canvas id="torq" data-type="radial-gauge" data-width="280" data-height="280"
+          data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="Nm" data-value-box=false
+          data-animation-rule="linear">
+        </canvas>
+        <p>Torq</p>
+      </div>
+      <input id="torqv" disabled="true">
+    </div2>
+  </div>
+
+  <script>
+    const dieselModel = null;
+    const petrolModel = null;
+
+    async function init() {
+      this.dieselModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json');
+      this.petrolModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/petrol/model.json');
+    }
+
+    let speedDial = new Knob({
+      id: "speed",
+      size: "xlarge",
+      type: "Oscar",
+      lowVal: 0,
+      highVal: 2000,
+      value: 0,
+      label: true,
+      sensitivity: 0.2,
+      lblTxtColor: "#000000"
+    });
+    let posDial = new Knob({
+      id: "pos",
+      size: "xlarge",
+      type: "Oscar",
+      lowVal: 0,
+      highVal: 50,
+      value: 0,
+      label: true,
+      sensitivity: 0.2,
+      lblTxtColor: "#000000"
+    });
+    const getPrediction = async function (speed, position, type) {
+      if (type === "diesel") {
+        pred = this.dieselModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
+        return pred.data();
+      } else {
+        pred = this.petrolModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
+        return pred.data();
+      }
+    }
+
+    var pos = 0;
+    var speed = 0;
+    var dim = 180;
+
+    var radioButtons = document.getElementsByName("options")
+
+    function knobChanged(id, val) {
+      if (id == 'speed') this.speed = val
+      else this.pos = val
+      run()
+    }
+
+    function getSigma(type) {
+      if (type === "diesel") {
+        return [1.7503585335958, 1.162775729864102]
+      } else {
+        return [1.035027314473586, 1.662414912756557]
+      }
+    }
+
+    function getType() {
+      for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked == true) {
+          return radioButtons[i].id
+        }
+      }
+    }
+
+    function normal(mu, sigma, nsamples) { // using central limit
+      if (!nsamples) nsamples = 3
+      if (!sigma) sigma = 1
+      if (!mu) mu = 0
+      var run_total = 0
+      for (var i = 0; i < nsamples; i++) {
+        run_total += Math.random()
+      }
+      return sigma * (run_total - nsamples / 2) / (nsamples / 2) + mu
+    }
+
+    pred = [];
+    function run() {
+      var type = getType();
+      sigma = getSigma(type);
+      var noise_speed = normal(parseFloat(speed), sigma[0], 1)
+      var noise_pos = normal(parseFloat(pos), sigma[1], 1)
+      getPrediction(noise_speed, noise_pos, type)
+        .then((pred) => { this.pred = pred });
+    }
+
+    setTimeout(function () {
+      var interval = setInterval(function setResult() {
+        if (pred.length > 0) {
+          document.getElementById('torqv').value = this.pred[0];
+          document.getElementById('afpv').value = this.pred[1];
+          document.getElementById('ffrv').value = this.pred[2];
+          document.getElementById('torq').setAttribute('data-value', this.pred[0] / 400 * 100);
+          document.getElementById('afp').setAttribute('data-value', this.pred[1] / 400 * 100);
+          document.getElementById('ffr').setAttribute('data-value', this.pred[2] / 400 * 100);
+        }
+      }, 3000);
+    }, 3000)
+
+  </script>
+  <style>
+    .panel {
+      margin-top: 2rem;
+      padding: 2rem;
+      background-color: rgb(169, 169, 169);
+      border-radius: 2rem;
+      text-align: center;
+      border: solid;
+      border-width: medium;
+      border-color: black;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .main-content {
+      min-width: 88rem;
+    }
+
+    p {
+      color: black;
+    }
+
+    div2 {
+      display: inline-block;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    div.container {
+      min-block-size: 130px;
+      min-inline-size: 130px;
+    }
+  </style>
+</body>
+</html>
+
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+    Xiner Zhu | Imperial College London - Mechanical Egnineering
+  </span>
+</footer>
+
+  </section>
+  
+  
+
+</body>
+</html>
