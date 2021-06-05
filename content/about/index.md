@@ -25,6 +25,3 @@ If you spot any bugs or are interested in collaborations, either in an academic 
 xiner.zhu15@imperial.ac.uk (Xiner Zhu)
 
 huizhi.wang@imperial.ac.uk (Huizhi Wang)
-123456789
-abc
-def
