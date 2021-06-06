@@ -188,7 +188,8 @@
         pred = this.dieselModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
         return pred.data();
       } else {
-        pred = this.petrolModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
+        //pred = this.petrolModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
+        pred = this.petroltorqueModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
         return pred.data();
       }
     }
@@ -246,11 +247,11 @@
       var interval = setInterval(function setResult() {
         if (pred.length > 0) {
           document.getElementById('torqv').value = this.pred[0];
-          //document.getElementById('afpv').value = this.pred[1];
-         // document.getElementById('ffrv').value = this.pred[2];
+          document.getElementById('afpv').value = this.pred[1];
+          document.getElementById('ffrv').value = this.pred[2];
           document.getElementById('torq').setAttribute('data-value', this.pred[0] / 400 * 100);
-          //document.getElementById('afp').setAttribute('data-value', this.pred[1] / 400 * 100);
-         // document.getElementById('ffr').setAttribute('data-value', this.pred[2] / 400 * 100);
+          document.getElementById('afp').setAttribute('data-value', this.pred[1] / 400 * 100);
+          document.getElementById('ffr').setAttribute('data-value', this.pred[2] / 400 * 100);
         }
       }, 3000);
     }, 3000)
