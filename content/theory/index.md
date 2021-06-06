@@ -2,7 +2,7 @@
 title: Theory
 ---
 
-**Diesel** (Duramax Diesel V8)
+**Diesel** (Engine Test Animation)
 <iframe title="A 3D model" width="600" height="400" src="https://sketchfab.com/models/6c4f1b54b0a04b40a62771ede3f2a102/embed?autostart=0&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_watermark=1&amp;ui_watermark_link=1" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 **Petrol** (Ford Gasoline 4.6 V8)
