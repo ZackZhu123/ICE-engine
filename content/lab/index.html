@@ -74,7 +74,8 @@
 
     async function init() {
       this.dieselModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json');
-      this.petrolModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/petrol/model.json');
+      //this.petrolModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/petrol/model.json');
+      this.petroltorqueModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/New_individual_models/Torque%20(Nm)_model2.json');
     }
 
     let speedDial = new Knob({
@@ -162,11 +163,11 @@
       var interval = setInterval(function setResult() {
         if (pred.length > 0) {
           document.getElementById('torqv').value = this.pred[0];
-          document.getElementById('afpv').value = this.pred[1];
-          document.getElementById('ffrv').value = this.pred[2];
+          //document.getElementById('afpv').value = this.pred[1];
+         // document.getElementById('ffrv').value = this.pred[2];
           document.getElementById('torq').setAttribute('data-value', this.pred[0] / 400 * 100);
-          document.getElementById('afp').setAttribute('data-value', this.pred[1] / 400 * 100);
-          document.getElementById('ffr').setAttribute('data-value', this.pred[2] / 400 * 100);
+          //document.getElementById('afp').setAttribute('data-value', this.pred[1] / 400 * 100);
+         // document.getElementById('ffr').setAttribute('data-value', this.pred[2] / 400 * 100);
         }
       }, 3000);
     }, 3000)

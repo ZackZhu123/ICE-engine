@@ -72,7 +72,7 @@ This document is a brief primer on using Go templates.</description>
  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Air Flow Pressure
   &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Fuel Flow Rate
   &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Torq
-    const dieselModel = null; const petrolModel = null; async function init() { this.dieselModel = await tf.loadLayersModel(&#39;https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json&#39;); this.petrolModel = await tf.</description>
+    const dieselModel = null; const petrolModel = null; async function init() { this.dieselModel = await tf.loadLayersModel(&#39;https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json&#39;); //this.petrolModel = await tf.</description>
     </item>
     
     <item>
