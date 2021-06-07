@@ -67,12 +67,11 @@ This document is a brief primer on using Go templates.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zackzhu123.github.io/ICE-engine/lab/</guid>
-      <description>Diesel&amp;nbsp; Petrol     Engine Speed (rpm)
-&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;   Throttle Positioin (%)
- &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Air Flow Pressure
+      <description>Diesel&amp;nbsp; Petrol  Working states manual input     Engine Speed (rpm)   Throttle Positioin (%)       Air Flow Pressure
   &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Fuel Flow Rate
   &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Torq
-    const dieselModel = null; const petrolModel = null; async function init() { this.dieselModel = await tf.loadLayersModel(&#39;https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json&#39;); //this.petrolModel = await tf.</description>
+       Oil Out Temp
+  &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;    Exhaust Temp</description>
     </item>
     
     <item>
