@@ -13,69 +13,156 @@
     <label class="btn-secondary" for="diesel">Diesel&nbsp;</label>
     <input type="radio" class="btn-check" name="options" id="petrol" autocomplete="off" />
     <label class="btn-secondary" for="petrol">Petrol</label>
-
+    <div>
+      <input type="checkbox" id="manual" name="manual" onclick="changeCheckBox()" value="Manual">
+      <label class="btn-secondary" for="petrol">Working states manual input</label>
+    </div>
+    
   </div>
   <div class="panel">
     <div2>
-      <div class="container">
+      <div class="container" style="float:left">
         <div class="knob" id="speed"></div>
+        <div style="margin-top: 150px;">Engine Speed (rpm)</div>
       </div>
-      <p>Engine Speed (rpm)</p>
-      &nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;
-      <div class="container">
+      
+      <div class="container" style="float: left; margin-left: 200px;">
         <div class="knob" id="pos"></div>
+        <div style="margin-top: 150px;">Throttle Positioin (%)</div>
       </div>
-      <p>Throttle Positioin (%)</p>
     </div2>
-    &nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;
 
+    <div>
+      <div2>
+        <div>
+          <canvas id="afp" data-type="radial-gauge" data-width="280" data-height="280"
+            data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="Pa" data-value-box=false
+            data-animation-duration="1500" data-animation-rule="linear">
+          </canvas>
+          <p>Air Flow Pressure</p>
+        </div>
+        <input id="afpv" disabled="true">
+      </div2>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <div2>
+        <div>
+          <canvas id="ffr" data-type="radial-gauge" data-width="280" data-height="280"
+            data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="cm^3/min" data-value-box=false
+            data-animation-rule="linear">
+          </canvas>
+          <p>Fuel Flow Rate</p>
+        </div>
+        <input id="ffrv" disabled="true">
+      </div2>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <div2>
+        <div>
+          <canvas id="torq" data-type="radial-gauge" data-width="280" data-height="280"
+            data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="Nm" data-value-box=false
+            data-animation-rule="linear">
+          </canvas>
+          <p>Torq</p>
+        </div>
+        <input id="torqv" disabled="true">
+      </div2>
+    </div>
 
-    <div2>
-      <div>
-        <canvas id="afp" data-type="radial-gauge" data-width="280" data-height="280"
-          data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="Pa" data-value-box=false
-          data-animation-duration="1500" data-animation-rule="linear">
-        </canvas>
-        <p>Air Flow Pressure</p>
-      </div>
-      <input id="afpv" disabled="true">
-    </div2>
-    &nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;
-    <div2>
-      <div>
-        <canvas id="ffr" data-type="radial-gauge" data-width="280" data-height="280"
-          data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="cm^3/min" data-value-box=false
-          data-animation-rule="linear">
-        </canvas>
-        <p>Fuel Flow Rate</p>
-      </div>
-      <input id="ffrv" disabled="true">
-    </div2>
-    &nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;
-    <div2>
-      <div>
-        <canvas id="torq" data-type="radial-gauge" data-width="280" data-height="280"
-          data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="Nm" data-value-box=false
-          data-animation-rule="linear">
-        </canvas>
-        <p>Torq</p>
-      </div>
-      <input id="torqv" disabled="true">
-    </div2>
+    <div>
+      <div2>
+        <div>
+          <canvas id="oot" data-type="radial-gauge" data-width="280" data-height="280"
+            data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="C" data-value-box=false
+            data-animation-duration="1500" data-animation-rule="linear">
+          </canvas>
+          <p>Oil Out Temp</p>
+        </div>
+        <input id="ootv" >
+      </div2>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <div2>
+        <div>
+          <canvas id="et" data-type="radial-gauge" data-width="280" data-height="280"
+            data-major-ticks="0,100,200,300,400,500,600,700,800,900,1000" data-units="C" data-value-box=false
+            data-animation-rule="linear">
+          </canvas>
+          <p>Exhaust Temp</p>
+        </div>
+        <input id="etv" >
+      </div2>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <div2>
+        <div>
+          <canvas id="dot" data-type="radial-gauge" data-width="280" data-height="280"
+            data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="C" data-value-box=false
+            data-animation-rule="linear">
+          </canvas>
+          <p>Dyno Out Temp</p>
+        </div>
+        <input id="dotv" >
+      </div2>
+    </div>
+
+    <div>
+      <div2>
+        <div>
+          <canvas id="oit" data-type="radial-gauge" data-width="280" data-height="280"
+            data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="C" data-value-box=false
+            data-animation-duration="1500" data-animation-rule="linear">
+          </canvas>
+          <p>Oil In Temp</p>
+        </div>
+        <input id="oitv" >
+      </div2>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <div2>
+        <div>
+          <canvas id="cwot" data-type="radial-gauge" data-width="280" data-height="280"
+            data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="C" data-value-box=false
+            data-animation-rule="linear">
+          </canvas>
+          <p>Cal Water Out Temp</p>
+        </div>
+        <input id="cwotv" >
+      </div2>
+      &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <div2>
+        <div>
+          <canvas id="ceot" data-type="radial-gauge" data-width="280" data-height="280"
+            data-major-ticks="0,50,100,150,200,250,300,350,400" data-units="C" data-value-box=false
+            data-animation-rule="linear">
+          </canvas>
+          <p>Cal Exhaust Out Temp</p>
+        </div>
+        <input id="ceotv" >
+      </div2>
+    </div>
+
   </div>
 
   <script>
     const dieselModel = null;
     const petrolModel = null;
 
+
     async function init() {
-      this.dieselModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json');
+      // this.dieselModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/diesel/model.json');
       //this.petrolModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ex172000/lab-web/master/petrol/model.json');
-      this.petroltorqueModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/New_individual_models/Torque%20(Nm)_model2.json');
+      // this.petroltorqueModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/New_individual_models/Torque%20(Nm)_model2.json');
+      this.DieseltransModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/Diesel_individual_models/Diesel_model.json');
+      this.AFPMModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/Diesel_individual_models/AirFlowPressure(Pa)_model.json');
+      this.FFRModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/Diesel_individual_models/FuelFlowRate_model.json');
+      this.TorqueModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/Diesel_individual_models/Torque(Nm)_model.json');
+
+      this.PetroltorqueModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/Petrol_individual_models/Petrol_model.json');
+      this.AFPMPertolModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/Petrol_individual_models/AirFlowPressure(Pa)_model4.json');
+      this.FFRPertolModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/Petrol_individual_models/FuelFlowRate_model3.json');
+      this.TorquePertolModel = await tf.loadLayersModel('https://raw.githubusercontent.com/ZackZhu123/ICE-engine/master/Petrol_individual_models/Torque(Nm)_model2.json');
     }
 
     let speedDial = new Knob({
@@ -102,19 +189,53 @@
     });
     const getPrediction = async function (speed, position, type) {
       if (type === "diesel") {
-        pred = this.dieselModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
-        return pred.data();
+        // pred = this.dieselModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
+        pred0 = this.DieseltransModel.predict(tf.tensor([position, speed]).reshape([1, 2]));
+        return pred0.data();
       } else {
         //pred = this.petrolModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
-        pred = this.petroltorqueModel.predict(tf.tensor([speed, position]).reshape([1, 2]));
-        return pred.data();
+        pred0 = this.PetroltorqueModel.predict(tf.tensor([position, speed]).reshape([1, 2]));
+        return pred0.data();
       }
     }
+  
+    const getAFPM = async function (position, speed, data) {
+      var type = getType()
+      if (type === "diesel") {
+        predTmp = this.AFPMModel.predict(tf.tensor([position, speed, data[1], data[4], data[5]]).reshape([1, 5]));
+        return predTmp.data();
+      }else{
+        predTmp = this.AFPMPertolModel.predict(tf.tensor([position, speed, data[1], data[4]]).reshape([1, 4]));
+        return predTmp.data();
+      }
+    }
+    const getFFR = async function (position, speed, data) {
+      var type = getType()
+      if (type === "diesel") {
+        predTmp = this.FFRModel.predict(tf.tensor([position, speed, data[0], data[3], data[5]]).reshape([1, 5]));
+        return predTmp.data();
+      }else{
+        predTmp = this.FFRPertolModel.predict(tf.tensor([position, speed, data[1], data[4]]).reshape([1, 4]));
+        return predTmp.data();
+      }
+    }
+    const getTorque = async function (position, speed, data) {
+      var type = getType()
+      if (type === "diesel") {
+        predTmp = this.TorqueModel.predict(tf.tensor([position, speed, data[1], data[4], data[2]]).reshape([1, 5]));
+        return predTmp.data();
+      }else{
+        predTmp = this.TorquePertolModel.predict(tf.tensor([position, speed, data[1], data[4], data[5]]).reshape([1, 5]));
+        return predTmp.data();
+      }
+    }
+
+
 
     var pos = 0;
     var speed = 0;
     var dim = 180;
-
+    var enableManual = false;
     var radioButtons = document.getElementsByName("options")
 
     function knobChanged(id, val) {
@@ -150,28 +271,80 @@
       return sigma * (run_total - nsamples / 2) / (nsamples / 2) + mu
     }
 
-    pred = [];
+    pred0 = [];
     function run() {
       var type = getType();
       sigma = getSigma(type);
       var noise_speed = normal(parseFloat(speed), sigma[0], 1)
       var noise_pos = normal(parseFloat(pos), sigma[1], 1)
       getPrediction(noise_speed, noise_pos, type)
-        .then((pred) => { this.pred = pred });
+        .then((pred) => { 
+          this.pred0 = pred 
+        });
     }
 
     setTimeout(function () {
       var interval = setInterval(function setResult() {
-        if (pred.length > 0) {
-          document.getElementById('torqv').value = this.pred[0];
-          document.getElementById('afpv').value = this.pred[1];
-          document.getElementById('ffrv').value = this.pred[2];
-          document.getElementById('torq').setAttribute('data-value', this.pred[0] / 400 * 100);
-          document.getElementById('afp').setAttribute('data-value', this.pred[1] / 400 * 100);
-          document.getElementById('ffr').setAttribute('data-value', this.pred[2] / 400 * 100);
+        if (pred0.length > 0) {
+          if (enableManual){
+            this.pred0[0] = document.getElementById('ootv').value
+            this.pred0[1] = document.getElementById('etv').value
+            this.pred0[2] = document.getElementById('dotv').value
+            this.pred0[3] = document.getElementById('oitv').value
+            this.pred0[4] = document.getElementById('cwotv').value
+            this.pred0[5] = document.getElementById('ceotv').value
+          }else {
+            document.getElementById('ootv').value = this.pred0[0].toFixed(2);
+            document.getElementById('etv').value = this.pred0[1].toFixed(2);
+            document.getElementById('dotv').value = this.pred0[2].toFixed(2);
+            document.getElementById('oitv').value = this.pred0[3].toFixed(2);
+            document.getElementById('cwotv').value = this.pred0[4].toFixed(2);
+            document.getElementById('ceotv').value = this.pred0[5].toFixed(2);
+          }
+          document.getElementById('oot').setAttribute('data-value', this.pred0[0] / 400 * 100);
+          document.getElementById('et').setAttribute('data-value', this.pred0[1] / 400 * 100);
+          document.getElementById('dot').setAttribute('data-value', this.pred0[2] / 400 * 100);
+          document.getElementById('oit').setAttribute('data-value', this.pred0[3] / 400 * 100);
+          document.getElementById('cwot').setAttribute('data-value', this.pred0[4] / 400 * 100);
+          document.getElementById('ceot').setAttribute('data-value', this.pred0[5] / 400 * 100);
+          getResult(this.pred0)
         }
       }, 3000);
     }, 3000)
+
+    function getResult(data){
+      getAFPM(pos, speed, data)
+        .then((res) => {     
+          if (res && res.length > 0) {      
+            document.getElementById('afpv').value = res[0].toFixed(2);
+            document.getElementById('afp').setAttribute('data-value', res[0] / 400 * 100);
+          }
+        });
+      getFFR(pos, speed, data)
+        .then((res) => { 
+          if (res && res.length > 0) {      
+            document.getElementById('ffrv').value = res[0].toFixed(2);
+            document.getElementById('ffr').setAttribute('data-value', res[0] / 400 * 100);
+          }
+        });
+      getTorque(pos, speed, data)
+        .then((res) => { 
+          if (res && res.length > 0) {      
+            document.getElementById('torqv').value = res[0].toFixed(2);
+            document.getElementById('torq').setAttribute('data-value', res[0] / 400 * 100);
+          }
+        });
+    }
+
+    function changeCheckBox(){
+      var checkbox = document.getElementById('manual')
+      if (checkbox.checked == true){
+        enableManual = true
+      } else {
+        enableManual = false
+      }
+      console.info("enable manual: ",enableManual)
+    }
 
   </script>
   <style>
